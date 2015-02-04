@@ -45,7 +45,7 @@
 		<method_context>
 			<method_environment>
 				<envvar name='MANTA_NO_AUTH' value='true' />
-				<envvar name='MANTA_URL' value='https://us-east.manta.joyent.com' />
+				<envvar name='MANTA_URL' value='http://us-east.manta.joyent.com' />
 			</method_environment>
 		</method_context>
 	</exec_method>

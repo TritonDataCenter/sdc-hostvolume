@@ -22,13 +22,21 @@ source /opt/smartdc/boot/lib/util.sh
 CONFIG_AGENT_LOCAL_MANIFESTS_DIRS=/opt/smartdc/$role
 sdc_common_setup
 
-/usr/sbin/svccfg import /opt/smartdc/$role/smf/manifests/docker.xml
+/usr/sbin/svcadm enable svc:/system/identity:domain
+/usr/sbin/svccfg import /opt/smartdc/$role/smf/manifest/sysidtool.xml
+/usr/sbin/svccfg import /opt/smartdc/$role/smf/manifest/bind.xml
+/usr/sbin/svccfg import /opt/smartdc/$role/smf/manifest/status.xml
+/usr/sbin/svcadm enable svc:/network/nfs/status:default
+/usr/sbin/svccfg import /opt/smartdc/$role/smf/manifest/nlockmgr.xml
+/usr/sbin/svccfg import /opt/smartdc/$role/smf/manifest/client.xml
+/usr/sbin/svcadm enable svc:/network/nfs/client:default
+/usr/sbin/svccfg import /opt/smartdc/$role/smf/manifest/manta-nfs.xml
 
 # Log rotation.
 sdc_log_rotation_add amon-agent /var/svc/log/*amon-agent*.log 1g
 sdc_log_rotation_add config-agent /var/svc/log/*config-agent*.log 1g
 sdc_log_rotation_add registrar /var/svc/log/*registrar*.log 1g
-sdc_log_rotation_add $role /var/svc/log/*$role*.log 1g
+sdc_log_rotation_add mantanfs /var/svc/log/*mantanfs*.log 1g
 sdc_log_rotation_setup_end
 
 # All done, run boilerplate end-of-setup
