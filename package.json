@@ -1,0 +1,12 @@
+{
+  "name": "sdc-nfs",
+  "version": "0.1.0",
+  "author": "Joyent (joyent.com)",
+  "private": true,
+  "dependencies": {
+    "manta-nfs": "0.1.0"
+  },
+  "devDependencies": {
+  },
+  "license": "MPL-2.0"
+}
