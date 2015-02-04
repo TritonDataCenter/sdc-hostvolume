@@ -5,7 +5,7 @@
   "author": "Joyent (joyent.com)",
   "private": true,
   "dependencies": {
-    "manta-nfs": "0.1.0"
+    "manta-nfs": "git://github.com/joyent/manta-nfs.git#e63798c5911b22f19a546e8266842da717332d70"
   },
   "devDependencies": {
   },

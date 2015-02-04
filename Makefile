@@ -21,7 +21,6 @@ JSL_CONF_NODE	 = tools/jsl.node.conf
 JSL_FILES_NODE	 = $(JS_FILES)
 JSSTYLE_FILES	 = $(JS_FILES)
 JSSTYLE_FLAGS	 = -f tools/jsstyle.conf
-#SMF_MANIFESTS_IN = smf/manifests/manta-nfs.xml.in
 CLEAN_FILES += ./node_modules
 
 NODE_PREBUILT_VERSION=v0.10.32
