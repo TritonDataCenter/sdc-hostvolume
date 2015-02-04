@@ -1,5 +1,6 @@
 {
-  "name": "sdc-nfs",
+  "name": "nfs",
+  "description": "SmartDataCenter Manta NFS zone image",
   "version": "0.1.0",
   "author": "Joyent (joyent.com)",
   "private": true,
