@@ -86,7 +86,6 @@ release: all
 	cp -r \
 		$(TOP)/package.json \
 		$(TOP)/lib \
-		$(TOP)/node_modules \
 		$(TOP)/test \
 		$(RELSTAGEDIR)/root/opt/smartdc/$(NAME)
 	cp build/build.json $(RELSTAGEDIR)/root/opt/smartdc/$(NAME)/etc/
