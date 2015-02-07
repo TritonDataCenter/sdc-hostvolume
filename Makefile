@@ -8,11 +8,7 @@
 # Copyright (c) 2015, Joyent, Inc.
 #
 
-NAME:=nfs
-
-DOC_FILES	 = index.md images.md
-EXTRA_DOC_DEPS += deps/restdown-brand-remora/.git
-RESTDOWN_FLAGS   = --brand-dir=deps/restdown-brand-remora
+NAME:=hostvolume
 
 TAPE	:= ./node_modules/.bin/tape
 
@@ -91,9 +87,7 @@ release: all
 		$(TOP)/package.json \
 		$(TOP)/lib \
 		$(TOP)/node_modules \
-		$(TOP)/smf \
 		$(TOP)/test \
-		$(TOP)/sapi_manifests \
 		$(RELSTAGEDIR)/root/opt/smartdc/$(NAME)
 	cp build/build.json $(RELSTAGEDIR)/root/opt/smartdc/$(NAME)/etc/
 	cp -r \
@@ -105,16 +99,6 @@ release: all
 		$(RELSTAGEDIR)/root/opt/smartdc/$(NAME)/build/node/lib/node_modules \
 		$(RELSTAGEDIR)/root/opt/smartdc/$(NAME)/build/node/include \
 		$(RELSTAGEDIR)/root/opt/smartdc/$(NAME)/build/node/share
-	# Trim node_modules (this is death of a 1000 cuts, try for some
-	# easy wins).
-	# XXX these inherited from imgapi, review them
-	find $(RELSTAGEDIR)/root/opt/smartdc/$(NAME)/node_modules -name test | xargs -n1 rm -rf
-	find $(RELSTAGEDIR)/root/opt/smartdc/$(NAME)/node_modules -name tests | xargs -n1 rm -rf
-	find $(RELSTAGEDIR)/root/opt/smartdc/$(NAME)/node_modules -name examples | xargs -n1 rm -rf
-	find $(RELSTAGEDIR)/root/opt/smartdc/$(NAME)/node_modules -name "draft-*" | xargs -n1 rm -rf  # draft xml stuff in json-schema
-	find $(RELSTAGEDIR)/root/opt/smartdc/$(NAME)/node_modules -name libusdt | xargs -n1 rm -rf  # dtrace-provider
-	find $(RELSTAGEDIR)/root/opt/smartdc/$(NAME)/node_modules -name obj.target | xargs -n1 rm -rf  # dtrace-provider
-	find $(RELSTAGEDIR)/root/opt/smartdc/$(NAME)/node_modules -name deps | grep 'extsprintf/deps$$' | xargs -n1 rm -rf  # old extsprintf shipped dev bits
 	# Tar
 	(cd $(RELSTAGEDIR) && $(TAR) -jcf $(TOP)/$(RELEASE_TARBALL) root)
 	@rm -rf $(RELSTAGEDIR)

@@ -8,9 +8,9 @@
     Copyright (c) 2015, Joyent, Inc.
 -->
 
-# sdc-nfs
+# sdc-hostvolume
 
-A manta-nfs server for docker.
+A support zone for each CN to help with sdc-docker host volumes.
 
 # Current State
 

@@ -15,22 +15,12 @@ set -o xtrace
 set -o errexit
 
 PATH=/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin
-role=nfs
+role=hostvolume
 
 # Include common utility functions (then run the boilerplate)
 source /opt/smartdc/boot/lib/util.sh
 CONFIG_AGENT_LOCAL_MANIFESTS_DIRS=/opt/smartdc/$role
 sdc_common_setup
-
-/usr/sbin/svcadm enable svc:/system/identity:domain
-/usr/sbin/svccfg import /opt/smartdc/$role/smf/manifest/sysidtool.xml
-/usr/sbin/svccfg import /opt/smartdc/$role/smf/manifest/bind.xml
-/usr/sbin/svccfg import /opt/smartdc/$role/smf/manifest/status.xml
-/usr/sbin/svcadm enable svc:/network/nfs/status:default
-/usr/sbin/svccfg import /opt/smartdc/$role/smf/manifest/nlockmgr.xml
-/usr/sbin/svccfg import /opt/smartdc/$role/smf/manifest/client.xml
-/usr/sbin/svcadm enable svc:/network/nfs/client:default
-/usr/sbin/svccfg import /opt/smartdc/$role/smf/manifest/manta-nfs.xml
 
 # Log rotation.
 sdc_log_rotation_add amon-agent /var/svc/log/*amon-agent*.log 1g
