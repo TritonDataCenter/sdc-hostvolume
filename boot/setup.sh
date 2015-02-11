@@ -26,7 +26,6 @@ sdc_common_setup
 sdc_log_rotation_add amon-agent /var/svc/log/*amon-agent*.log 1g
 sdc_log_rotation_add config-agent /var/svc/log/*config-agent*.log 1g
 sdc_log_rotation_add registrar /var/svc/log/*registrar*.log 1g
-sdc_log_rotation_add mantanfs /var/svc/log/*mantanfs*.log 1g
 sdc_log_rotation_setup_end
 
 # All done, run boilerplate end-of-setup

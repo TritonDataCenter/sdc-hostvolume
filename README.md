@@ -10,6 +10,10 @@
 
 # sdc-hostvolume
 
+This repository is part of the Joyent SmartDataCenter project (SDC).  For
+contribution guidelines, issues, and general documentation, visit the main
+[SDC](http://github.com/joyent/sdc) project page.
+
 A support zone for each CN to help with sdc-docker host volumes.
 
 # Current State
