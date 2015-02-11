@@ -25,7 +25,6 @@ RELSTAGEDIR:=/tmp/$(STAMP)
 #
 .PHONY: all
 all: $(SMF_MANIFESTS) | sdc-scripts
-	$(NPM) install
 
 sdc-scripts: deps/sdc-scripts/.git
 
