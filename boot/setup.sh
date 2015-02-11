@@ -15,17 +15,12 @@ set -o xtrace
 set -o errexit
 
 PATH=/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin
-role=hostvolume
 
 # Include common utility functions (then run the boilerplate)
 source /opt/smartdc/boot/lib/util.sh
-CONFIG_AGENT_LOCAL_MANIFESTS_DIRS=/opt/smartdc/$role
 sdc_common_setup
 
 # Log rotation.
-sdc_log_rotation_add amon-agent /var/svc/log/*amon-agent*.log 1g
-sdc_log_rotation_add config-agent /var/svc/log/*config-agent*.log 1g
-sdc_log_rotation_add registrar /var/svc/log/*registrar*.log 1g
 sdc_log_rotation_setup_end
 
 # All done, run boilerplate end-of-setup
